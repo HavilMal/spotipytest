@@ -3,21 +3,22 @@ import pprint
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
-pp = pprint.PrettyPrinter(indent=2, compact=True)
+pp = pprint.PrettyPrinter(indent=2)
 
 birdy_uri = 'spotify:artist:2WX2uTcsvV5OnS0inACecP'
 spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 
 PLAYLISTS_IDS = [
-    "37i9dQZF1DWZeKCadgRdKQ"
+    "37i9dQZF1DX6cg4h2PoN9y",
+    "0fZm7ygIaFLpTX7AEd38WT"
 ]
 
 playlists_striped = []
 
 for ID in PLAYLISTS_IDS:
     
-    results =spotify.playlist_items(playlist_id="37i9dQZF1DWZeKCadgRdKQ", limit=10)
+    results = spotify.playlist_items(playlist_id=ID, limit=20)
 
     tracks = results['items']
 
